@@ -1,8 +1,5 @@
 import requests
-urls = requests.get(
-    "http://www.python.org",
-    "www.google.com"
-    )
+urls = requests.get("http://www.python.org/no_page")
 try:
     urls.raise_for_status()
 except Exception as error:
