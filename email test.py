@@ -1,6 +1,7 @@
 import smtplib
-from email.mime.multipart import MIMEMultipart
-msg = MIMEMultipart()
+#from email.mime.multipart import MIMEMultipart
+from email.message import EmailMessage
+msg = EmailMessage()
 
 msg['Subject'] = "Hello from python"
 msg['From'] = 'andrewtalbotprogramming@gmail.com'
