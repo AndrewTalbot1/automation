@@ -1,0 +1,2 @@
+There was a problem: 404 Client Error: Not Found for url: https://www.python.org/no_page_found%0A
+There was a problem: 404 Client Error: Not Found for url: http://www.youtube.com/no_page_found%0A
