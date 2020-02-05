@@ -10,19 +10,21 @@ class HatsSpider(scrapy.Spider):
         "DEPTH_LIMIT": 1,
         "ROBOTSTXT_OBEY": False,
         "AUTOTHROTTLE_ENABLE": True,
-        "AUTOTHROTTLE_START_DELAY": 5.0,
+        "AUTOTHROTTLE_START_DELAY": 15.0,
+        "AUTOTHROTTLE_MAX_DELAY": 10.0,
+        #"DOWNLOAD_DELAY": 5.0
     }
     def parse(self, response):
         for hat_list in response.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "img-switcher-parent", " " ))]'):
             yield {
-                "Title": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "organic-gallery-title__content", " " ))]/text()').get(),
-                "Price": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "gallery-offer-price", " " ))]//span/text()').get(),
-                "Min Order": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "gallery-offer-minorder", " " ))]//span/text()').get(),
-                "Country": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "bg-visible", " " ))]/text()').get(),
-                "Years In Business": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "seller-tag__year", " " ))]/text()').get(),
+                "Title": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "organic-gallery-title__content", " " ))]/text()').get(),
+                "Price": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "gallery-offer-price", " " ))]//span/text()').get(),
+                "Min Order": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "gallery-offer-minorder", " " ))]//span/text()').get(),
+                "Country": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "bg-visible", " " ))]/text()').get(),
+                "Years In Business": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "seller-tag__year", " " ))]/text()').get(),
                 #"Response Rate": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "seller-tag__response-rate", " " ))]/text()')[0].get()
                 # Not every listing has a response rate, figure out how to fix categories with NONE
-                "Review Score": hat_list.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "seb-supplier-review__score", " " ))]/text()')[1].get(),
+                "Review Score": hat_list.xpath('.//*[contains(concat( " ", @class, " " ), concat( " ", "seb-supplier-review__score", " " ))]/text()').get(),
             }
         
         
