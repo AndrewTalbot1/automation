@@ -4,7 +4,7 @@ import scrapy
 class AuthorSpider(scrapy.Spider):
     name = "author_links"
     start_urls = [
-        'http://quotes.toscrape.com/page/1/',
+        'http://quotes.toscrape.com/',
     ]
     # Limits the amount of pages it will crawl the value 
     # 0 doesn't have a limit
