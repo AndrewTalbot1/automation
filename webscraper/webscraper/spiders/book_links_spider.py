@@ -7,7 +7,7 @@ class BookSpider(scrapy.Spider):
     ]
 
     custom_settings = {
-        'DEPTH_LIMIT' : 1,
+        'DEPTH_LIMIT' : 0,
     }
 
     def parse(self, response):
