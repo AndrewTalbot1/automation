@@ -2,6 +2,8 @@
 Some of the data has been changed for this repository. 
 Example: driver.get("example.com")
 Example: df.to_csv('#userpath, mode = 'a')
+Turn off sleep mode sudo pmset -a standby 0
+Turn on energy saver
 '''
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -271,10 +273,13 @@ for zip_code in zip_list:
         #WEDNESDAY
         w = re.search(('W:'), cells[7].get_text())
         w_2 = re.search(('W:'), cells[8].get_text())
+        w_3 = re.search(('W:'), cells[9].get_text())
         if w:
             wednesday.append(cells[7].get_text())
         elif w_2:
             wednesday.append(cells[8].get_text())
+        elif w_3:
+            wednesday.append(cells[9].get_text())
         else:
             wednesday.append(cells[10].get_text())
         
@@ -282,6 +287,8 @@ for zip_code in zip_list:
         if w:
             wednesday_lunch.append([])
         elif w_2:
+            wednesday_lunch.append([])
+        elif w_3:
             wednesday_lunch.append([])
         elif ml:
             wednesday_lunch.append(cells[10].get_text())
@@ -293,6 +300,8 @@ for zip_code in zip_list:
             thursday.append(cells[8].get_text())
         elif w_2:
             thursday.append(cells[9].get_text())
+        elif w_3:
+            thursday.append(cells[10].get_text())
         elif ml: 
             thursday.append(cells[11].get_text())
         else:
@@ -303,6 +312,8 @@ for zip_code in zip_list:
             thursday_lunch.append([])
         elif w_2:
             thursday_lunch.append([])
+        elif w_3:
+            thursday_lunch.append(cells[11].get_text())
         elif ml:
             thursday_lunch.append(cells[12].get_text())
         else:
@@ -313,6 +324,8 @@ for zip_code in zip_list:
             friday.append(cells[9].get_text())
         elif w_2:
             friday.append(cells[10].get_text())
+        elif w_3:
+            friday.append(cells[12].get_text())
         elif ml: 
             friday.append(cells[13].get_text())
         else:
@@ -323,6 +336,8 @@ for zip_code in zip_list:
             friday_lunch.append([])
         elif w_2:
             friday_lunch.append([])
+        elif w_3:
+            friday_lunch.append(cells[13].get_text())
         elif ml:
             friday_lunch.append(cells[14].get_text())
         else:
